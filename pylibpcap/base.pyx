@@ -205,7 +205,7 @@ cdef class LibPcap(BasePcap):
             if pkt == NULL:
                 break
 
-            yield pkt_header.caplen, pkt_header.ts.tv_sec, (<char *>pkt)[:pkt_header.caplen]
+            yield pkt_header, pkt_header.caplen, pkt_header.ts.tv_sec, (<char *>pkt)[:pkt_header.caplen]
 
     def write_path(self, path):
         """
